@@ -1,0 +1,7 @@
+MIN_SUPPORT=15, MIN_CONFIDENCE=50
+calc_for_portion(i_start=0, i_finish=100, 2020-09-30 13:15:00.972708
+calc_for_portion(i_start=600, i_finish=700, 2020-09-30 13:15:00.986103
+calc_for_portion(i_start=1200, i_finish=1300, 2020-09-30 13:15:01.008094
+calc_for_portion(i_start=1800, i_finish=1900, 2020-09-30 13:15:01.028776
+calc_for_portion(i_start=2400, i_finish=2500, 2020-09-30 13:15:01.055567
+calc_for_portion(i_start=3000, i_finish=3100, 2020-09-30 13:15:01.082866
