@@ -24,11 +24,16 @@ def get_assoc_rules(dataframe, min_supp=0.2, min_conf=0.5):
 
     Generates association rules from data stored in the given DataFrame and returns the rules as a DataFrame
     """
+    t0 = datetime.datetime.now()
     frequent_itemsets = fpgrowth(dataframe, min_support=min_supp, use_colnames=True)
+    print(f'frequent itemsets generated in {(datetime.datetime.now() - t0)} sec')
     assoc_rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=min_conf, support_only=False)
+    print(f'assoc rules generated in {(datetime.datetime.now() - t0)} sec')
     # Convert cells in these two columns to type 'set':
     for col_name in ['antecedents', 'consequents']:
         assoc_rules.loc[:, col_name] = assoc_rules[col_name].apply(convert_to_set)
+    print(f'converted to sets rules generated in {(datetime.datetime.now()-t0)} sec')
+
     return assoc_rules
 
 
@@ -137,7 +142,7 @@ if __name__ == '__main__':
     ds = load_data_from_csv()
 
     for p_min_conf in [50]:
-        for p_min_supp in [15]:
+        for p_min_supp in [10]:
 
             if (p_min_supp, p_min_conf) not in [(20, 50), (30, 50), (30, 60)]:  # these cases had been processed already
 
